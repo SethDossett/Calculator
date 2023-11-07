@@ -1,4 +1,5 @@
-﻿namespace Calculator;
+﻿using CalculatorLibrary;
+namespace CalculatorProgram;
 
 internal class Program
 {
@@ -8,26 +9,13 @@ internal class Program
     public static void Main(string[] args)
     {
         EndApp = false;
-
+        //Start App
         while (!EndApp)
         {
             device.RunCalculator();
+            device.Finish();
+            EndApp = true;
         }
-
-
-    }
-
-    public static double ValidateAnswer(string result)
-    {
-        result = result.Trim();
-        while (string.IsNullOrEmpty(result) || !double.TryParse(result, out _))
-        {
-            Console.WriteLine("Please enter an integer, Try Again");
-
-            result = Console.ReadLine();
-        }
-
-        return double.Parse(result.Trim());
     }
 
 }
